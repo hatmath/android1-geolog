@@ -1,72 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:paddingLeft="20sp"
-    android:paddingRight="20sp"
-    android:paddingTop="20sp"
-    android:paddingBottom="20sp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#009688"
     android:orientation="vertical"
+    android:paddingLeft="20sp"
+    android:paddingTop="20sp"
+    android:paddingRight="20sp"
+    android:paddingBottom="20sp"
     tools:context=".MainActivity">
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/kilometrage"/>
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
-<EditText
-    android:id="@+id/kilometre_txt"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:inputType="text"
-    android:hint="@string/kilometre_txt_hint"
-    android:autofillHints=""
-    android:textColor="@color/black"
-    android:minWidth="48dp"
-    android:minHeight="48dp">
-</EditText>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/lieu"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/kilometrage"
+        android:textColor="@color/black" />
 
-<EditText
-    android:id="@+id/lieu_visite_txt"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:inputType="text"
-    android:hint="@string/lieu_visite_txt_hint"
-    android:autofillHints=""
-    android:minWidth="48dp"
-    android:minHeight="48dp">
-</EditText>
+    <EditText
+        android:id="@+id/kilometre_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/kilometre_txt_hint"
+        android:inputType="text"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:textColor="@color/blue1"></EditText>
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/date"
-    android:textColor="@color/black"/>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
 
-<DatePicker
-    android:id="@+id/datePicker"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:calendarViewShown="false"
-    android:datePickerMode="spinner"></DatePicker>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lieu"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/lieu_visite_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/lieu_visite_txt_hint"
+        android:inputType="text"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:textColor="@color/blue1"></EditText>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/date"
+        android:textColor="@color/black" />
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"></DatePicker>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
 
     <Button
         android:id="@+id/soumission_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="start"
-        android:text="@string/demarrer" />
-<Button
-    android:id="@+id/liste_button"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:gravity="start"
-    android:text="@string/liste" />
+        android:text="@string/demarrer"
+        android:textColorLink="#673AB7" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <Button
+        android:id="@+id/liste_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="@string/liste" />
 
 </LinearLayout>

@@ -12,6 +12,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.appbar.MaterialToolbar;
+
 import java.sql.Array;
 import java.util.ArrayList;
 
@@ -27,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        MaterialToolbar toolbar = findViewById(R.id.toolbar);
+//        toolbar.setTitle("Geolog");
 
         Button soumissionBtn = (Button) findViewById(R.id.soumission_button);
 
