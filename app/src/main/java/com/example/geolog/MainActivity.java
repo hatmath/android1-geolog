@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             geologInfos.add(geologInfo);
             GeologInfo lastItem = geologInfos.get(geologInfos.size() - 1);
 
-            Toast myToast = Toast.makeText(this, lastItem.toString(), Toast.LENGTH_LONG);
+            Toast myToast = Toast.makeText(this, lastItem.toString(), Toast.LENGTH_SHORT);
             myToast.show();
 
         });
