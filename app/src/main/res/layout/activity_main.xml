@@ -81,6 +81,21 @@
         android:layout_width="match_parent"
         android:layout_height="20dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/spinner_lbl"
+        android:textColor="@color/black" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
     <Button
         android:id="@+id/soumission_button"
         android:layout_width="wrap_content"

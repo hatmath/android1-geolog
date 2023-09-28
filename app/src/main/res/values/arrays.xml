@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="mode_de_deplacement">
+        <item>marche</item>
+        <item>vélo</item>
+        <item>autobus</item>
+        <item>vélo</item>
+    </string-array>
+</resources>

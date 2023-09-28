@@ -7,4 +7,5 @@
     <string name="liste">Liste</string>
     <string name="kilometre_txt_hint">km</string>
     <string name="lieu_visite_txt_hint">Où</string>
+    <string name="spinner_lbl">Moyen</string>
 </resources>
