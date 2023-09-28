@@ -12,6 +12,11 @@ import android.widget.EditText;
 import java.sql.Array;
 import java.util.ArrayList;
 
+// recuperer toutes les variables de la vue
+// Stocker ces variables dans un tableau
+// Informer l'utilisateur que les valeurs ont été enregistrées correctement en les affichant
+// Lecture: Spinner
+
 public class MainActivity extends AppCompatActivity {
     ArrayList<GeologInfo> geologInfos = new ArrayList<>();
 
