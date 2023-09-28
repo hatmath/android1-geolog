@@ -7,10 +7,6 @@
     Cours: 		Applications natives sous android 1 (420-325-AH)
 	Date:		Septembre 2023
 
-# LANCER L'APPLICATION
-
-    flutter run à la racine du projet.
-
 # ÉNONCÉ/DESCRIPTION
 
     Cours du 27 sept
