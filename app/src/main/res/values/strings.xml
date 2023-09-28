@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">geolog</string>
+    <string name="kilometrage">Kilométrage parcouru</string>
+    <string name="lieu">Lieu visité</string>
+    <string name="date">Date du jour</string>
+    <string name="demarrer">Démarrer</string>
+</resources>

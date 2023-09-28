@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingLeft="20sp"
+    android:paddingRight="20sp"
+    android:paddingTop="20sp"
+    android:paddingBottom="20sp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/kilometrage"/>
+
+<EditText
+    android:id="@+id/kilometre_txt"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:inputType="text"></EditText>
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/lieu"/>
+
+<EditText
+    android:id="@+id/lieu_visite_txt"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:inputType="text"></EditText>
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/date"
+    android:textColor="@color/black"/>
+
+<DatePicker
+    android:id="@+id/datePicker"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:calendarViewShown="false"
+    android:datePickerMode="spinner"></DatePicker>
+
+<Button
+    android:id="@+id/soumission_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="left"
+    android:text="@string/demarrer" />
+
+</LinearLayout>
