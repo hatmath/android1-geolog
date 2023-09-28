@@ -12,12 +12,10 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.material.appbar.MaterialToolbar;
-
 import java.sql.Array;
 import java.util.ArrayList;
 
-// recuperer toutes les variables de la vue
+// récupérer toutes les variables de la vue
 // Stocker ces variables dans un tableau
 // Informer l'utilisateur que les valeurs ont été enregistrées correctement en les affichant
 // Lecture: Spinner
@@ -29,9 +27,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        MaterialToolbar toolbar = findViewById(R.id.toolbar);
-//        toolbar.setTitle("Geolog");
 
         Button soumissionBtn = (Button) findViewById(R.id.soumission_button);
 
@@ -57,21 +52,12 @@ public class MainActivity extends AppCompatActivity {
             Toast myToast = Toast.makeText(this, lastItem.toString(), Toast.LENGTH_LONG);
             myToast.show();
 
-//            new AlertDialog.Builder(view.getContext())
-//                    .setTitle("Ajouté au tableau de valeurs")
-//                    .setMessage(lastItem.toString())
-//                    .setPositiveButton(android.R.string.yes, (dialog, which) -> {
-//                        // Faites quelque chose lorsque le bouton est cliqué
-//                    })
-//                    .show();
-
-
-
         });
 
         Button listeBtn = (Button) findViewById(R.id.liste_button);
 
         listeBtn.setOnClickListener(view -> {
+
             String geoLogInfosStr = "";
             for (GeologInfo item : geologInfos) {
                 geoLogInfosStr += item.toString();
@@ -84,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                         // Faites quelque chose lorsque le bouton est cliqué
                     })
                     .show();
+
         });
     }
 }

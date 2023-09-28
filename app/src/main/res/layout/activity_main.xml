@@ -37,7 +37,7 @@
         android:inputType="text"
         android:minWidth="48dp"
         android:minHeight="48dp"
-        android:textColor="@color/blue1"></EditText>
+        android:textColor="@color/purple3"></EditText>
 
     <Space
         android:layout_width="match_parent"
@@ -58,7 +58,7 @@
         android:inputType="text"
         android:minWidth="48dp"
         android:minHeight="48dp"
-        android:textColor="@color/blue1"></EditText>
+        android:textColor="@color/purple3"></EditText>
 
     <Space
         android:layout_width="match_parent"
