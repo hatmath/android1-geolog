@@ -1,5 +1,7 @@
 package com.example.geolog;
 
+import static android.app.PendingIntent.getActivity;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -8,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.sql.Array;
 import java.util.ArrayList;
@@ -25,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button soumission = (Button) findViewById(R.id.soumission_button);
+        Button soumissionBtn = (Button) findViewById(R.id.soumission_button);
 
-        soumission.setOnClickListener(view -> {
+        soumissionBtn.setOnClickListener(view -> {
 
             GeologInfo geologInfo = new GeologInfo();
             EditText distanceET = (EditText) findViewById(R.id.kilometre_txt);
@@ -46,27 +49,36 @@ public class MainActivity extends AppCompatActivity {
             geologInfos.add(geologInfo);
             GeologInfo lastItem = geologInfos.get(geologInfos.size() - 1);
 
-            new AlertDialog.Builder(view.getContext())
-                    .setTitle("Ajouté au tableau de valeurs")
-                    .setMessage(lastItem.toString())
-                    .setPositiveButton(android.R.string.yes, (dialog, which) -> {
-                        // Faites quelque chose lorsque le bouton est cliqué
-                    })
-                    .show();
+            Toast myToast = Toast.makeText(this, lastItem.toString(), Toast.LENGTH_LONG);
+            myToast.show();
 
+//            new AlertDialog.Builder(view.getContext())
+//                    .setTitle("Ajouté au tableau de valeurs")
+//                    .setMessage(lastItem.toString())
+//                    .setPositiveButton(android.R.string.yes, (dialog, which) -> {
+//                        // Faites quelque chose lorsque le bouton est cliqué
+//                    })
+//                    .show();
+
+
+
+        });
+
+        Button listeBtn = (Button) findViewById(R.id.liste_button);
+
+        listeBtn.setOnClickListener(view -> {
             String geoLogInfosStr = "";
             for (GeologInfo item : geologInfos) {
                 geoLogInfosStr += item.toString();
             }
 
             new AlertDialog.Builder(view.getContext())
-                    .setTitle("Contenu du tableau de valeurs")
+                    .setTitle("Liste des entrées")
                     .setMessage(geoLogInfosStr)
                     .setPositiveButton(android.R.string.yes, (dialog, which) -> {
                         // Faites quelque chose lorsque le bouton est cliqué
                     })
                     .show();
-
         });
     }
 }

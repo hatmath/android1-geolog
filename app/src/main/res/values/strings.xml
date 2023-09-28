@@ -4,4 +4,7 @@
     <string name="lieu">Lieu visité</string>
     <string name="date">Date du jour</string>
     <string name="demarrer">Démarrer</string>
+    <string name="liste">Liste</string>
+    <string name="kilometre_txt_hint">km</string>
+    <string name="lieu_visite_txt_hint">Où</string>
 </resources>
