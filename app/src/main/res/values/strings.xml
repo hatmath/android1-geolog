@@ -1,11 +1,28 @@
 <resources>
-    <string name="app_name">geolog</string>
-    <string name="kilometrage">Kilométrage parcouru</string>
-    <string name="lieu">Lieu visité</string>
-    <string name="date">Date du jour</string>
-    <string name="demarrer">Démarrer</string>
-    <string name="liste">Liste</string>
-    <string name="kilometre_txt_hint">km</string>
-    <string name="lieu_visite_txt_hint">Où</string>
-    <string name="spinner_lbl">Moyen</string>
+
+<!--  AndroidManifest.xml  -->
+    <string name="app_name">Geolog</string>
+
+<!--    activity_main.xml-->
+    <string name="jour_tv_txt">Jour</string>
+    <string name="jour_et_hint">jj</string>
+    <string name="mois_tv_txt">Mois</string>
+    <string name="mois_et_hint">mm</string>
+    <string name="annne_tv_txt">Année</string>
+    <string name="annne_et_hint">aaaa</string>
+    <string name="lieu_depart_tv_txt">Lieu de départ</string>
+    <string name="lieu_depart_et_hint">ville</string>
+    <string name="lieu_arrivee_tv_txt">Lieu d\'arrivée</string>
+    <string name="lieu_arrivee_et_hint">ville</string>
+    <string name="kilometre_depart_tv_txt">Kilomètre de départ</string>
+    <string name="kilometre_depart_et_hint">nombre entier</string>
+    <string name="kilometre_arrivee_tv_txt">Kilomètre d\'arrivée</string>
+    <string name="kilometre_arrivee_et_hint">nombre entier</string>
+    <string name="depart_btn_txt">Départ</string>
+    <string name="voyages_btn_txt">Voyages</string>
+
+<!--    Message dans MainActivity.java-->
+    <string name="nombre_invalide">nombre invalide</string>
+    <string name="voyages_list_title">Voyages à ce jour</string>
+
 </resources>

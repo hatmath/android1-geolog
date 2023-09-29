@@ -18,6 +18,57 @@
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/jour_tv_txt"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/jour_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/jour_et_hint"
+        android:inputType="number"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:textColor="@color/purple3"></EditText>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mois_tv_txt"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/mois_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/mois_et_hint"
+        android:inputType="number"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:textColor="@color/purple3"></EditText>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/annne_tv_txt"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/annee_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/annne_et_hint"
+        android:inputType="number"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:textColor="@color/purple3"></EditText>
+
     <Space
         android:layout_width="match_parent"
         android:layout_height="20dp" />
@@ -25,15 +76,32 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/kilometrage"
+        android:text="@string/lieu_depart_tv_txt"
         android:textColor="@color/black" />
 
     <EditText
-        android:id="@+id/kilometre_txt"
+        android:id="@+id/lieu_depart_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autofillHints=""
-        android:hint="@string/kilometre_txt_hint"
+        android:hint="@string/lieu_depart_et_hint"
+        android:inputType="text"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:textColor="@color/purple3"></EditText>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lieu_arrivee_tv_txt"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/lieu_arrivee_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:hint="@string/lieu_arrivee_et_hint"
         android:inputType="text"
         android:minWidth="48dp"
         android:minHeight="48dp"
@@ -46,62 +114,47 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/lieu"
+        android:text="@string/kilometre_depart_tv_txt"
         android:textColor="@color/black" />
 
     <EditText
-        android:id="@+id/lieu_visite_txt"
+        android:id="@+id/kilometre_depart_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autofillHints=""
-        android:hint="@string/lieu_visite_txt_hint"
-        android:inputType="text"
+        android:hint="@string/kilometre_depart_et_hint"
+        android:inputType="number"
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:textColor="@color/purple3"></EditText>
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/date"
+        android:text="@string/kilometre_arrivee_tv_txt"
         android:textColor="@color/black" />
 
-    <DatePicker
-        android:id="@+id/datePicker"
+    <EditText
+        android:id="@+id/kilometre_arrivee_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:calendarViewShown="false"
-        android:datePickerMode="spinner"></DatePicker>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/spinner_lbl"
-        android:textColor="@color/black" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:autofillHints=""
+        android:hint="@string/kilometre_arrivee_et_hint"
+        android:inputType="number"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:textColor="@color/purple3"></EditText>
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="20dp" />
 
     <Button
-        android:id="@+id/soumission_button"
+        android:id="@+id/depart_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="start"
-        android:text="@string/demarrer"
+        android:text="@string/depart_btn_txt"
         android:textColorLink="#673AB7" />
 
     <Space
@@ -109,10 +162,10 @@
         android:layout_height="20dp" />
 
     <Button
-        android:id="@+id/liste_button"
+        android:id="@+id/voyages_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="start"
-        android:text="@string/liste" />
+        android:text="@string/voyages_btn_txt" />
 
 </LinearLayout>
