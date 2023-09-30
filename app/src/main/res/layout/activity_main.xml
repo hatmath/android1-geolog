@@ -150,11 +150,11 @@
         android:layout_height="20dp" />
 
     <Button
-        android:id="@+id/depart_btn"
+        android:id="@+id/action_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="start"
-        android:text="@string/depart_btn_txt"
+        android:text="@string/action_btn_txt"
         android:textColorLink="#673AB7" />
 
     <Space

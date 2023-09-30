@@ -1,6 +1,7 @@
 package com.example.geolog;
+import java.io.Serializable;
 
-public class Voyage {
+public class Voyage implements Serializable {
     /*
     À faire
     attributs: jour (entier), mois (entier), annee (entier), lieu de depart, lieu d'arrivee, kilometre de depart, kilometre d'arrivee

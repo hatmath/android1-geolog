@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import java.sql.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 // Cours 27 sept
 // récupérer toutes les variables de la vue
@@ -65,54 +67,60 @@ public class MainActivity extends AppCompatActivity {
 //        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 //        spinner.setAdapter(adapter);
 
-        Button departBtn = (Button) findViewById(R.id.depart_btn);
+        etat = EtatVue.ENCOURS;
+        Button actionBtn = (Button) findViewById(R.id.action_btn);
 
-        departBtn.setOnClickListener(view -> {
+        actionBtn.setOnClickListener(view -> {
 
-            Voyage voyage = new Voyage();
-            EditText etNumberHolder;
-            String strNumberHolder;
-            try {
-                etNumberHolder = (EditText) findViewById(R.id.jour_et);
+            if (etat == EtatVue.ENCOURS) {
+                Voyage voyage = new Voyage();
+                EditText etNumberHolder;
+                String strNumberHolder;
+                try {
+                    etNumberHolder = (EditText) findViewById(R.id.jour_et);
+                    strNumberHolder = etNumberHolder.getText().toString();
+                    voyage.setJour(strNumberHolder.isEmpty() ? 0 : Integer.parseInt(strNumberHolder));
+
+                    etNumberHolder = (EditText) findViewById(R.id.mois_et);
+                    strNumberHolder = etNumberHolder.getText().toString();
+                    voyage.setMois(strNumberHolder.isEmpty() ? 0 : Integer.parseInt(strNumberHolder));
+
+                    etNumberHolder = (EditText) findViewById(R.id.annee_et);
+                    strNumberHolder = etNumberHolder.getText().toString();
+                    voyage.setAnnee(strNumberHolder.isEmpty() ? 0 : Integer.parseInt(strNumberHolder));
+
+                    etNumberHolder = (EditText) findViewById(R.id.kilometre_depart_et);
+                    strNumberHolder = etNumberHolder.getText().toString();
+                    voyage.setKilometreDepart(strNumberHolder.isEmpty() ? 0 : Integer.parseInt(strNumberHolder));
+
+                    etNumberHolder = (EditText) findViewById(R.id.kilometre_arrivee_et);
+                    strNumberHolder = etNumberHolder.getText().toString();
+                    voyage.setKilometreArrivee(strNumberHolder.isEmpty() ? 0 : Integer.parseInt(strNumberHolder));
+
+                } catch (NumberFormatException e) {
+                    Toast.makeText(this, R.string.nombre_invalide, Toast.LENGTH_SHORT).show();
+                }
+
+                etNumberHolder = (EditText) findViewById(R.id.lieu_depart_et);
                 strNumberHolder = etNumberHolder.getText().toString();
-                voyage.setJour(strNumberHolder.isEmpty() ? 0 : Integer.parseInt(strNumberHolder));
+                voyage.setLieuDepart(strNumberHolder);
 
-                etNumberHolder = (EditText) findViewById(R.id.mois_et);
+                etNumberHolder = (EditText) findViewById(R.id.lieu_arrivee_et);
                 strNumberHolder = etNumberHolder.getText().toString();
-                voyage.setMois(strNumberHolder.isEmpty() ? 0 : Integer.parseInt(strNumberHolder));
+                voyage.setLieuArrivee(strNumberHolder);
 
-                etNumberHolder = (EditText) findViewById(R.id.annee_et);
-                strNumberHolder = etNumberHolder.getText().toString();
-                voyage.setAnnee(strNumberHolder.isEmpty() ? 0 : Integer.parseInt(strNumberHolder));
+                voyages.add(voyage);
+                Voyage lastItem = voyages.get(voyages.size() - 1);
 
-                etNumberHolder = (EditText) findViewById(R.id.kilometre_depart_et);
-                strNumberHolder = etNumberHolder.getText().toString();
-                voyage.setKilometreDepart(strNumberHolder.isEmpty() ? 0 : Integer.parseInt(strNumberHolder));
+                // Ajoutez vos objets Voyage à la liste voyages
+                VoyageFileUtil.writeVoyages(this, voyages);
 
-                etNumberHolder = (EditText) findViewById(R.id.kilometre_arrivee_et);
-                strNumberHolder = etNumberHolder.getText().toString();
-                voyage.setKilometreArrivee(strNumberHolder.isEmpty() ? 0 : Integer.parseInt(strNumberHolder));
-
-            } catch (NumberFormatException e) {
-                Toast.makeText(this, R.string.nombre_invalide, Toast.LENGTH_SHORT).show();
+                Toast myToast = Toast.makeText(this, lastItem.toString(), Toast.LENGTH_SHORT);
+                myToast.show();
+                changerEtat();
+            } else {
+                changerEtat();
             }
-
-            etNumberHolder = (EditText) findViewById(R.id.lieu_depart_et);
-            strNumberHolder = etNumberHolder.getText().toString();
-            voyage.setLieuDepart(strNumberHolder);
-
-            etNumberHolder = (EditText) findViewById(R.id.lieu_arrivee_et);
-            strNumberHolder = etNumberHolder.getText().toString();
-            voyage.setLieuArrivee(strNumberHolder);
-
-            voyages.add(voyage);
-            Voyage lastItem = voyages.get(voyages.size() - 1);
-
-//            Écriture de la liste d'objets GeologInfo depuis le fichier JSON
-//            JsonFileHandler.writeGeologInfoListToJson(this, geologInfos);
-
-            Toast myToast = Toast.makeText(this, lastItem.toString(), Toast.LENGTH_SHORT);
-            myToast.show();
 
         });
 
@@ -120,7 +128,8 @@ public class MainActivity extends AppCompatActivity {
 
         listeBtn.setOnClickListener(view -> {
 
-//            geologInfos = JsonFileHandler.readGeologInfoListFromJson(this);
+            // Lire des voyages depuis un fichier
+            voyages = (ArrayList)VoyageFileUtil.readVoyages(this);
 
             String voyagesStr = "";
             for (Voyage item : voyages) {
@@ -137,10 +146,22 @@ public class MainActivity extends AppCompatActivity {
 
         });
     }
-/*
-private void changerEtat() {
-    EtatVue.ENCOURS
 
- */
+    private void changerEtat() {
+
+        Button action = (Button) findViewById(R.id.action_btn);
+
+        if (etat == EtatVue.ENCOURS) {
+            etat = EtatVue.STOPPE;
+            action.setText(R.string.etat_stoppe);
+            action.setGravity(Gravity.LEFT);
+        } else if (etat == EtatVue.STOPPE) {
+            etat = EtatVue.ENCOURS;
+            action.setText(R.string.etat_encours);
+            action.setGravity(Gravity.LEFT);
+        }
+
+    }
+
 }
 
