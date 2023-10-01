@@ -1,24 +1,21 @@
 package com.example.geolog;
 
-import static android.app.PendingIntent.getActivity;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 // Cours 27 sept
 // récupérer toutes les variables de la vue
@@ -59,77 +56,85 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        Lecture de la liste d'objets GeologInfo depuis le fichier JSON
-//        geologInfos = JsonFileHandler.readGeologInfoListFromJson(this);
-
-//        Spinner spinner = (Spinner) findViewById(R.id.spinner);
-//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.mode_de_deplacement, android.R.layout.simple_spinner_item);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinner.setAdapter(adapter);
+        fillSpinner();
+        resetAllEditTextFields((ViewGroup) findViewById(R.id.root_layout));
 
         etat = EtatVue.ENCOURS;
-        Button actionBtn = (Button) findViewById(R.id.action_btn);
 
+        Button actionBtn = (Button) findViewById(R.id.action_btn);
         actionBtn.setOnClickListener(view -> {
 
-            if (etat == EtatVue.ENCOURS) {
-                Voyage voyage = new Voyage();
-                EditText etNumberHolder;
-                String strNumberHolder;
-                try {
-                    etNumberHolder = (EditText) findViewById(R.id.jour_et);
-                    strNumberHolder = etNumberHolder.getText().toString();
-                    voyage.setJour(strNumberHolder.isEmpty() ? 0 : Integer.parseInt(strNumberHolder));
+            if (!oneEditTextFieldsIsEmpty((ViewGroup) findViewById(R.id.root_layout))) {
 
-                    etNumberHolder = (EditText) findViewById(R.id.mois_et);
-                    strNumberHolder = etNumberHolder.getText().toString();
-                    voyage.setMois(strNumberHolder.isEmpty() ? 0 : Integer.parseInt(strNumberHolder));
+                if (etat == EtatVue.ENCOURS) {
+                    Voyage voyage = new Voyage();
+                    EditText etNumberHolder;
+                    String strNumberHolder;
+                    try {
+                        etNumberHolder = (EditText) findViewById(R.id.jour_et);
+                        strNumberHolder = etNumberHolder.getText().toString();
+                        voyage.setJour(strNumberHolder.isEmpty() ? 0 : Integer.parseInt(strNumberHolder));
 
-                    etNumberHolder = (EditText) findViewById(R.id.annee_et);
-                    strNumberHolder = etNumberHolder.getText().toString();
-                    voyage.setAnnee(strNumberHolder.isEmpty() ? 0 : Integer.parseInt(strNumberHolder));
+                        etNumberHolder = (EditText) findViewById(R.id.mois_et);
+                        strNumberHolder = etNumberHolder.getText().toString();
+                        voyage.setMois(strNumberHolder.isEmpty() ? 0 : Integer.parseInt(strNumberHolder));
 
-                    etNumberHolder = (EditText) findViewById(R.id.kilometre_depart_et);
-                    strNumberHolder = etNumberHolder.getText().toString();
-                    voyage.setKilometreDepart(strNumberHolder.isEmpty() ? 0 : Integer.parseInt(strNumberHolder));
+                        etNumberHolder = (EditText) findViewById(R.id.annee_et);
+                        strNumberHolder = etNumberHolder.getText().toString();
+                        voyage.setAnnee(strNumberHolder.isEmpty() ? 0 : Integer.parseInt(strNumberHolder));
 
-                    etNumberHolder = (EditText) findViewById(R.id.kilometre_arrivee_et);
-                    strNumberHolder = etNumberHolder.getText().toString();
-                    voyage.setKilometreArrivee(strNumberHolder.isEmpty() ? 0 : Integer.parseInt(strNumberHolder));
+                        etNumberHolder = (EditText) findViewById(R.id.kilometre_depart_et);
+                        strNumberHolder = etNumberHolder.getText().toString();
+                        voyage.setKilometreDepart(strNumberHolder.isEmpty() ? 0 : Integer.parseInt(strNumberHolder));
 
-                } catch (NumberFormatException e) {
-                    Toast.makeText(this, R.string.nombre_invalide, Toast.LENGTH_SHORT).show();
+                        etNumberHolder = (EditText) findViewById(R.id.kilometre_arrivee_et);
+                        strNumberHolder = etNumberHolder.getText().toString();
+                        voyage.setKilometreArrivee(strNumberHolder.isEmpty() ? 0 : Integer.parseInt(strNumberHolder));
+
+                    } catch (NumberFormatException e) {
+                        Toast.makeText(this, R.string.nombre_invalide, Toast.LENGTH_SHORT).show();
+                    }
+
+                    etNumberHolder = (EditText) findViewById(R.id.lieu_depart_et);
+                    strNumberHolder = etNumberHolder.getText().toString();
+                    voyage.setLieuDepart(strNumberHolder);
+
+                    etNumberHolder = (EditText) findViewById(R.id.lieu_arrivee_et);
+                    strNumberHolder = etNumberHolder.getText().toString();
+                    voyage.setLieuArrivee(strNumberHolder);
+
+                    voyages.add(voyage);
+                    Voyage lastItem = voyages.get(voyages.size() - 1);
+
+                    // Ajoutez vos objets Voyage à la liste voyages
+                    VoyageFileUtil.writeVoyages(this, voyages);
+
+                    Toast myToast = Toast.makeText(this, lastItem.toString(), Toast.LENGTH_SHORT);
+                    myToast.show();
+                    changerEtat();
+                } else {
+                    changerEtat();
+                    fillSpinner();
+                    resetAllEditTextFields((ViewGroup) findViewById(R.id.root_layout));
                 }
-
-                etNumberHolder = (EditText) findViewById(R.id.lieu_depart_et);
-                strNumberHolder = etNumberHolder.getText().toString();
-                voyage.setLieuDepart(strNumberHolder);
-
-                etNumberHolder = (EditText) findViewById(R.id.lieu_arrivee_et);
-                strNumberHolder = etNumberHolder.getText().toString();
-                voyage.setLieuArrivee(strNumberHolder);
-
-                voyages.add(voyage);
-                Voyage lastItem = voyages.get(voyages.size() - 1);
-
-                // Ajoutez vos objets Voyage à la liste voyages
-                VoyageFileUtil.writeVoyages(this, voyages);
-
-                Toast myToast = Toast.makeText(this, lastItem.toString(), Toast.LENGTH_SHORT);
-                myToast.show();
-                changerEtat();
             } else {
-                changerEtat();
+                Toast myToast = Toast.makeText(this, R.string.edittext_empty, Toast.LENGTH_SHORT);
+                myToast.show();
             }
 
         });
 
-        Button listeBtn = (Button) findViewById(R.id.voyages_btn);
+        Button effacerBtn = (Button) findViewById(R.id.effacer_btn);
+        effacerBtn.setOnClickListener(view -> {
+            resetAllEditTextFields((ViewGroup) findViewById(R.id.root_layout));
+        });
 
+
+        Button listeBtn = (Button) findViewById(R.id.voyages_btn);
         listeBtn.setOnClickListener(view -> {
 
             // Lire des voyages depuis un fichier
-            voyages = (ArrayList)VoyageFileUtil.readVoyages(this);
+            voyages = (ArrayList) VoyageFileUtil.readVoyages(this);
 
             String voyagesStr = "";
             for (Voyage item : voyages) {
@@ -145,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
                     .show();
 
         });
+
     }
 
     private void changerEtat() {
@@ -154,13 +160,97 @@ public class MainActivity extends AppCompatActivity {
         if (etat == EtatVue.ENCOURS) {
             etat = EtatVue.STOPPE;
             action.setText(R.string.etat_stoppe);
+            action.setBackgroundColor(ContextCompat.getColor(this, R.color.stoppe));
             action.setGravity(Gravity.LEFT);
         } else if (etat == EtatVue.STOPPE) {
             etat = EtatVue.ENCOURS;
             action.setText(R.string.etat_encours);
-            action.setGravity(Gravity.LEFT);
+            action.setBackgroundColor(ContextCompat.getColor(this, R.color.encours));
+            action.setGravity(Gravity.CENTER);
         }
 
+    }
+
+    private void resetAllEditTextFields(ViewGroup viewGroup) {
+        for (int i = 0; i < viewGroup.getChildCount(); i++) {
+            View child = viewGroup.getChildAt(i);
+            if (child instanceof EditText) {
+                ((EditText) child).setText("");
+            } else if (child instanceof ViewGroup) {
+                resetAllEditTextFields((ViewGroup) child);
+            }
+        }
+    }
+
+    private boolean oneEditTextFieldsIsEmpty(ViewGroup viewGroup) {
+
+        for (int i = 0; i < viewGroup.getChildCount(); i++) {
+            View child = viewGroup.getChildAt(i);
+            if (child instanceof EditText) {
+                if (!((EditText) child).getText().toString().isEmpty()) {
+                    return false;
+                }
+            } else if (child instanceof ViewGroup) {
+                oneEditTextFieldsIsEmpty((ViewGroup) child);
+            }
+        }
+        return true;
+    }
+
+    String previousSelection = "";
+
+    private void fillSpinner() {
+
+        voyages = (ArrayList) VoyageFileUtil.readVoyages(this);
+
+        String[] datesArray = new String[voyages.size() + 1]; // +1 pour l'option non sélectionnée
+        datesArray[0] = ""; // Option non sélectionnée
+
+        for (int i = 0; i < voyages.size(); i++) {
+            datesArray[i + 1] = voyages.get(i).date(); // Commencez à partir de l'index 1
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, datesArray);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        Spinner spinner = findViewById(R.id.spinner);
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                String selectedDate = (String) parentView.getItemAtPosition(position);
+                if (position != 0 && !selectedDate.equals(previousSelection)) {
+                    previousSelection = selectedDate;
+                    remplirWidgetsAvecVoyage(voyages.get(position - 1));
+                    Toast.makeText(getApplicationContext(), "Date sélectionnée : " + selectedDate, Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // L'action à effectuer si rien n'est sélectionné (optionnel)
+            }
+
+        });
+
+    }
+
+    public void remplirWidgetsAvecVoyage(Voyage voyage) {
+        EditText jourEditText = findViewById(R.id.jour_et);
+        EditText moisEditText = findViewById(R.id.mois_et);
+        EditText anneeEditText = findViewById(R.id.annee_et);
+        EditText lieuDepartEditText = findViewById(R.id.lieu_depart_et);
+        EditText lieuArriveeEditText = findViewById(R.id.lieu_arrivee_et);
+        EditText kilometreDepartEditText = findViewById(R.id.kilometre_depart_et);
+        EditText kilometreArriveeEditText = findViewById(R.id.kilometre_arrivee_et);
+
+        // Remplir les widgets EditText avec les données de l'objet Voyage
+        jourEditText.setText(String.valueOf(voyage.getJour()));
+        moisEditText.setText(String.valueOf(voyage.getMois()));
+        anneeEditText.setText(String.valueOf(voyage.getAnnee()));
+        lieuDepartEditText.setText(voyage.getLieuDepart());
+        lieuArriveeEditText.setText(voyage.getLieuArrivee());
+        kilometreDepartEditText.setText(String.valueOf(voyage.getKilometreDepart()));
+        kilometreArriveeEditText.setText(String.valueOf(voyage.getKilometreArrivee()));
     }
 
 }

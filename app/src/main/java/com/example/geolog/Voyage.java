@@ -28,6 +28,18 @@ public class Voyage implements Serializable {
     void setKilometreDepart(int kilometreDepart) {this.kilometreDepart = kilometreDepart;}
     void setKilometreArrivee(int kilometreArrivee) {this.kilometreArrivee = kilometreArrivee;}
 
+    public int getJour() {return jour;}
+    public int getMois() {return mois;}
+    public int getAnnee() {return annee;}
+    public String getLieuDepart() {return lieuDepart;}
+    public String getLieuArrivee() {return lieuArrivee;}
+    public int getKilometreDepart() {return kilometreDepart;}
+    public int getKilometreArrivee() {return kilometreArrivee;}
+
+    String date() {
+        return jour + "/" + mois + "/" + annee;
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();

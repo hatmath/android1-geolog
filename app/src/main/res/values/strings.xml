@@ -11,21 +11,24 @@
     <string name="annne_tv_txt">Année</string>
     <string name="annne_et_hint">aaaa</string>
     <string name="lieu_depart_tv_txt">Lieu de départ</string>
-    <string name="lieu_depart_et_hint">ville</string>
+    <string name="lieu_depart_et_hint">ville1</string>
     <string name="lieu_arrivee_tv_txt">Lieu d\'arrivée</string>
-    <string name="lieu_arrivee_et_hint">ville</string>
+    <string name="lieu_arrivee_et_hint">ville2</string>
     <string name="kilometre_depart_tv_txt">Kilomètre de départ</string>
-    <string name="kilometre_depart_et_hint">nombre entier</string>
+    <string name="kilometre_depart_et_hint">km1</string>
     <string name="kilometre_arrivee_tv_txt">Kilomètre d\'arrivée</string>
-    <string name="kilometre_arrivee_et_hint">nombre entier</string>
+    <string name="kilometre_arrivee_et_hint">km2</string>
     <string name="action_btn_txt">Démarrer</string>
-    <string name="voyages_btn_txt">Voyages</string>
+    <string name="voyages_btn_txt">Afficher tout les voyages</string>
 
 <!--    Message dans MainActivity.java-->
     <string name="nombre_invalide">nombre invalide</string>
     <string name="voyages_list_title">Voyages à ce jour</string>
     <string name="etat_encours">Démarrer</string>
     <string name="etat_stoppe">Arrêter</string>
+    <string name="edittext_empty">Un champ obligatoire est vide</string>
+    <string name="spinner_tv_txt">Sélectionner un voyage</string>
+    <string name="effacer_btn_txt">Effacer</string>
 
 
 </resources>

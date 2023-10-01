@@ -1,171 +1,243 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#009688"
     android:orientation="vertical"
-    android:paddingLeft="20sp"
-    android:paddingTop="20sp"
-    android:paddingRight="20sp"
-    android:paddingBottom="20sp"
+    android:paddingStart="20dp"
+    android:paddingTop="20dp"
+    android:paddingEnd="20dp"
+    android:paddingBottom="20dp"
     tools:context=".MainActivity">
 
+    <!-- Logo -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_menu_myplaces" />
+        android:src="@android:drawable/ic_menu_myplaces"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+
+    <!-- Champs de date -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/jour_tv_txt"
-        android:textColor="@color/black" />
+        android:orientation="horizontal"
+        android:gravity="start">
 
-    <EditText
-        android:id="@+id/jour_et"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:hint="@string/jour_et_hint"
-        android:inputType="number"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:textColor="@color/purple3"></EditText>
+        <!-- Jour -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/jour_tv_txt"
+            android:textColor="@color/black"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/mois_tv_txt"
-        android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/jour_et"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/jour_et_hint"
+            android:inputType="number"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:textColor="@color/purple3"/>
 
-    <EditText
-        android:id="@+id/mois_et"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:hint="@string/mois_et_hint"
-        android:inputType="number"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:textColor="@color/purple3"></EditText>
+        <!-- Mois -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mois_tv_txt"
+            android:textColor="@color/black"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/annne_tv_txt"
-        android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/mois_et"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/mois_et_hint"
+            android:inputType="number"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:textColor="@color/purple3"/>
 
-    <EditText
-        android:id="@+id/annee_et"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:hint="@string/annne_et_hint"
-        android:inputType="number"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:textColor="@color/purple3"></EditText>
+        <!-- Année -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/annne_tv_txt"
+            android:textColor="@color/black"/>
 
+        <EditText
+            android:id="@+id/annee_et"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/annne_et_hint"
+            android:inputType="number"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:textColor="@color/purple3"/>
+    </LinearLayout>
+
+    <!-- Espacement -->
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        android:layout_height="20dp"/>
 
+    <!-- Lieu de départ -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/lieu_depart_tv_txt"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/lieu_depart_et"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints=""
         android:hint="@string/lieu_depart_et_hint"
         android:inputType="text"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:textColor="@color/purple3"></EditText>
+        android:textColor="@color/purple3"/>
 
+    <!-- Lieu d'arrivée -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/lieu_arrivee_tv_txt"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/lieu_arrivee_et"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints=""
         android:hint="@string/lieu_arrivee_et_hint"
         android:inputType="text"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:textColor="@color/purple3"></EditText>
+        android:textColor="@color/purple3"/>
 
+    <!-- Espacement -->
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        android:layout_height="20dp"/>
 
+    <!-- Kilomètre de départ -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/kilometre_depart_tv_txt"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/kilometre_depart_et"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints=""
         android:hint="@string/kilometre_depart_et_hint"
         android:inputType="number"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:textColor="@color/purple3"></EditText>
+        android:textColor="@color/purple3"/>
 
+    <!-- Kilomètre d'arrivée -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/kilometre_arrivee_tv_txt"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/kilometre_arrivee_et"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints=""
         android:hint="@string/kilometre_arrivee_et_hint"
         android:inputType="number"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:textColor="@color/purple3"></EditText>
+        android:textColor="@color/purple3"/>
 
+    <!-- Espacement -->
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        android:layout_height="20dp"/>
 
-    <Button
-        android:id="@+id/action_btn"
-        android:layout_width="wrap_content"
+    <!-- Boutons -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="start"
-        android:text="@string/action_btn_txt"
-        android:textColorLink="#673AB7" />
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
 
+        <Button
+            android:id="@+id/action_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/action_btn_txt"
+            android:backgroundTint="@color/encours"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/effacer_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/effacer_btn_txt"
+            android:backgroundTint="@color/purple3"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <!-- Espacement -->
     <Space
         android:layout_width="match_parent"
-        android:layout_height="20dp" />
+        android:layout_height="20dp"/>
 
+    <!-- Séparateur -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Spinner -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="left">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/spinner_tv_txt"
+            android:textColor="@color/black"/>
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <!-- Séparateur -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Espacement -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <!-- Bouton "Voyages" -->
     <Button
         android:id="@+id/voyages_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="start"
-        android:text="@string/voyages_btn_txt" />
+        android:text="@string/voyages_btn_txt"
+        android:backgroundTint="@color/black"
+        android:layout_weight="1"
+        android:layout_gravity="center"/>
 
 </LinearLayout>
