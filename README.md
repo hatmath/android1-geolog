@@ -34,3 +34,5 @@
             La longueur du tableau n'est pas connu à l'avance
             Le spinner nous permet d'avoir les lieux visités
             Les voyages doivent être enregistrée dans un fichier
+    Cours du 4 oct
+    Cours du 5 oct
