@@ -44,8 +44,8 @@ public class Voyage implements Serializable {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Voyage{");
-        stringBuilder.append("jour=" + jour);
-        stringBuilder.append(", mois=" + mois);
+        stringBuilder.append("jour=" + ((jour > 9) ? jour : "0"+jour));
+        stringBuilder.append(", mois=" +((mois > 9) ? mois : "0"+mois));
         stringBuilder.append(", annee=" + annee);
         stringBuilder.append(", lieuDepart='" + lieuDepart + '\'');
         stringBuilder.append(", lieuArrivee='" + lieuArrivee + '\'');
