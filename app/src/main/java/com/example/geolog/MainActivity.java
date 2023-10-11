@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
@@ -56,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
             Mettre un message dans les log et sur l'app que le mail a été envoyé
             Revenir à l'activité principale
              */
-            Toast.makeText(this, "Courriel envoyé", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, SendMailActivity.class);
+            startActivity(intent);
             return true;
         }
 

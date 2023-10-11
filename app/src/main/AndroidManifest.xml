@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Geolog"
         tools:targetApi="31">
         <activity
+            android:name=".SendMailActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light">

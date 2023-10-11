@@ -1,9 +1,9 @@
 <resources>
 
-<!--  AndroidManifest.xml  -->
+    <!--  AndroidManifest.xml  -->
     <string name="app_name">Barre d\'actions</string>
 
-<!--    activity_main.xml -->
+    <!--    activity_main.xml -->
     <string name="jour_tv_txt">Jour</string>
     <string name="jour_et_hint">jj</string>
     <string name="mois_tv_txt">Mois</string>
@@ -21,7 +21,7 @@
     <string name="action_btn_txt">Démarrer</string>
     <string name="voyages_btn_txt">Afficher tout les voyages</string>
 
-<!--    Message dans MainActivity.java -->
+    <!--    Message dans MainActivity.java -->
     <string name="nombre_invalide">nombre invalide</string>
     <string name="voyages_list_title">Voyages à ce jour</string>
     <string name="etat_encours">Démarrer</string>
@@ -30,10 +30,9 @@
     <string name="spinner_tv_txt">Sélectionner un voyage</string>
     <string name="effacer_btn_txt">Effacer</string>
 
-<!--    Message dans /res/menu/menu_main.xml -->
+    <!--    Message dans /res/menu/menu_main.xml -->
     <string name="parametres_menu_tilte">Paramètres</string>
     <string name="mail_menu_tilte">Mail</string>
-
 
 
 </resources>
